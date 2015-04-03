@@ -5,16 +5,16 @@ Pod::Spec.new do |s|
   s.description = <<-DESC
                    * Get an array or dictionary from a .json file
                    DESC
-  s.homepage = "https://github.com/NSElvis/NSJSONSerialization-ANDYJSONFile"
+  s.homepage = "https://github.com/3lvis/NSJSONSerialization-ANDYJSONFile"
   s.license = {
     :type => 'MIT',
     :file => 'LICENSE.md'
   }
   s.author = { "Elvis Nunez" => "elvisnunez@me.com" }
-  s.social_media_url = "http://twitter.com/NSElvis"
+  s.social_media_url = "http://twitter.com/3lvis"
   s.platform = :ios, '6.0'
   s.source = {
-    :git => 'https://github.com/NSElvis/NSJSONSerialization-ANDYJSONFile.git',
+    :git => 'https://github.com/3lvis/NSJSONSerialization-ANDYJSONFile.git',
     :tag => s.version.to_s
   }
   s.source_files = 'NSJSONSerialization-ANDYJSONFile/'
