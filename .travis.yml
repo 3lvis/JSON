@@ -1,0 +1,5 @@
+language: objective-c
+before_install:
+- gem install cocoapods
+
+script: xctool -project Pod/Pod.xcodeproj -scheme Tests -sdk iphonesimulator build test

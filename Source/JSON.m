@@ -1,18 +1,18 @@
-#import "NSJSONSerialization+ANDYJSONFile.h"
+#import "JSON.h"
 
-@implementation NSJSONSerialization (ANDYJSONFile)
+@implementation JSON
 
-+ (id)JSONObjectWithContentsOfFile:(NSString *)fileName
++ (id)fromFileNamed:(NSString *)fileName
 {
-    return [self JSONObjectWithContentsOfFile:fileName inBundle:[NSBundle mainBundle]];
+    return [self fromFileNamed:fileName inBundle:[NSBundle mainBundle]];
 }
 
-+ (id)JSONObjectWithContentsOfFile:(NSString *)fileName inBundle:(NSBundle *)bundle
++ (id)fromFileNamed:(NSString *)fileName inBundle:(NSBundle *)bundle
 {
     NSString *filePath = [bundle pathForResource:[fileName stringByDeletingPathExtension]
                                           ofType:[fileName pathExtension]];
 
-    NSAssert(filePath, @"ANDYJSONFile: File not found");
+    NSAssert(filePath, @"JSON file not found");
 
     NSData *data = [NSData dataWithContentsOfFile:filePath];
 
@@ -21,12 +21,10 @@
     id result = [NSJSONSerialization JSONObjectWithData:data
                                                 options:NSJSONReadingMutableContainers
                                                   error:&error];
-
     if (error) {
-        NSLog(@"ANDYJSONFile error: %@", error);
-        return nil;
+        NSLog(@"JSON file error: %@", error);
     }
-    
+
     return result;
 }
 
