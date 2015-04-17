@@ -9,8 +9,7 @@
 
 @implementation Tests
 
-- (void)testFromFileNamed
-{
+- (void)testFromFileNamed {
     XCTAssertNotNil([JSON fromFileNamed:@"simple.json" inBundle:[NSBundle bundleForClass:[self class]]]);
 }
 

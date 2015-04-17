@@ -2,13 +2,11 @@
 
 @implementation JSON
 
-+ (id)fromFileNamed:(NSString *)fileName
-{
++ (id)fromFileNamed:(NSString *)fileName {
     return [self fromFileNamed:fileName inBundle:[NSBundle mainBundle]];
 }
 
-+ (id)fromFileNamed:(NSString *)fileName inBundle:(NSBundle *)bundle
-{
++ (id)fromFileNamed:(NSString *)fileName inBundle:(NSBundle *)bundle {
     NSString *filePath = [bundle pathForResource:[fileName stringByDeletingPathExtension]
                                           ofType:[fileName pathExtension]];
 
@@ -26,6 +24,21 @@
     }
 
     return result;
+}
+
+@end
+
+@implementation NSObject (JSON)
+
+- (void)prettyPrint {
+    NSError *error = nil;
+
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+
+    NSLog(@"JSON: %@", jsonString);
 }
 
 @end
