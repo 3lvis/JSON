@@ -17,7 +17,7 @@
     NSError *error = nil;
 
     id result = [NSJSONSerialization JSONObjectWithData:data
-                                                options:NSJSONReadingMutableContainers
+                                                options:0
                                                   error:&error];
     if (error) {
         NSLog(@"JSON file error: %@", error);
