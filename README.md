@@ -28,7 +28,7 @@ pod 'JSON'
 
 ## Author
 
-Elvis Nuñez, elvisnunez@me.com
+Elvis Nuñez, [@3lvis](https://twitter.com/3lvis)
 
 ## License
 
