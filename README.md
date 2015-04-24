@@ -12,7 +12,8 @@
 
 id JSON = [JSON fromFileNamed:@"users.json"];
 
-id JSON = [JSON fromFileNamed:@"users.json" inBundle:[NSBundle bundleWithClass:[self class]]];
+id JSON = [JSON fromFileNamed:@"users.json" 
+                     inBundle:[NSBundle bundleForClass:[self class]]];
 ```
 
 ## Installation
