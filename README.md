@@ -12,7 +12,7 @@
 
 id JSON = [JSON fromFileNamed:@"users.json"];
 
-id JSON = [JSON fromFileNamed:@"users.json" 
+id JSON = [JSON fromFileNamed:@"users-in-unit-tests-bundle.json" 
                      inBundle:[NSBundle bundleForClass:[self class]]];
 ```
 
