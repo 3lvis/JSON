@@ -8,9 +8,11 @@
 ## Usage
 
 ```objc
-+ (id)fromFileNamed:(NSString *)fileName;
+#import "JSON.h"
 
-+ (id)fromFileNamed:(NSString *)fileName inBundle:(NSBundle *)bundle;
+id JSON = [JSON fromFileNamed:@"users.json"];
+
+id JSON = [JSON fromFileNamed:@"users.json" inBundle:[NSBundle bundleWithClass:[self class]]];
 ```
 
 ## Installation
