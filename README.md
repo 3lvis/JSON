@@ -10,6 +10,7 @@
 ```objc
 #import "JSON.h"
 
+// Looks for your file in the main bundle
 id JSON = [JSON fromFileNamed:@"users.json"];
 
 id JSON = [JSON fromFileNamed:@"users-in-unit-tests-bundle.json" 
