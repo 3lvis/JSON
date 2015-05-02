@@ -34,3 +34,12 @@ extension NSObject {
     }
   }
 }
+
+extension NSData {
+  func toJSON() -> (result: NSObject?, error: NSError?) {
+    var error: NSError?
+    let JSON = NSJSONSerialization.JSONObjectWithData(self, options: .allZeros, error: &error) as? NSObject
+
+    return (JSON, error)
+  }
+}
