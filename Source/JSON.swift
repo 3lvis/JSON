@@ -28,7 +28,7 @@ extension NSObject {
     return pretty
   }
 
-  func prettyPrint() {
+  public func prettyPrint() {
     if let pretty = self.prettyDescription() {
       println(pretty)
     }
@@ -36,7 +36,7 @@ extension NSObject {
 }
 
 extension NSData {
-  func toJSON() -> (result: NSObject?, error: NSError?) {
+  public func toJSON() -> (result: NSObject?, error: NSError?) {
     var error: NSError?
     let JSON = NSJSONSerialization.JSONObjectWithData(self, options: .allZeros, error: &error) as? NSObject
 
