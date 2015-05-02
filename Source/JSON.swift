@@ -6,15 +6,14 @@ class JSON {
   }
 
   class func from(fileName: String, bundle: NSBundle) -> (result: NSObject?, error: NSError?) {
-    var error: NSError?
-    var result: NSObject?
+    var tuple: (NSObject?, NSError?)
     if let filePath = bundle.pathForResource(fileName.stringByDeletingPathExtension, ofType: fileName.pathExtension) {
-      if let data: NSData = NSData(contentsOfFile: filePath) {
-        result = NSJSONSerialization.JSONObjectWithData(data, options: .allZeros, error: &error) as? NSObject
+      if let data = NSData(contentsOfFile: filePath) {
+        tuple = data.toJSON()
       }
     }
 
-    return (result, error)
+    return tuple
   }
 }
 
