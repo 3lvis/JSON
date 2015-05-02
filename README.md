@@ -7,14 +7,13 @@
 
 ## Usage
 
-```objc
-#import "JSON.h"
+```swift
+import JSON
 
 // Looks for your file in the main bundle
-id JSON = [JSON fromFileNamed:@"users.json"];
+let (result: AnyObject?, error) = JSON.from("users.json")
 
-id JSON = [JSON fromFileNamed:@"users-in-unit-tests-bundle.json" 
-                     inBundle:[NSBundle bundleForClass:[self class]]];
+let (result: AnyObject?, error) = JSON.from("users.json", bundle: NSBundle(forClass: self.classForKeyedArchiver!))
 ```
 
 ## Installation
