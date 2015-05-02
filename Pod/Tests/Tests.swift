@@ -2,25 +2,15 @@ import Foundation
 import XCTest
 
 class Tests: XCTestCase {
+  // MARK: - from
+
   func testArrayJSONFromFileNamed() {
     var success = false
 
-    let (result, error) = JSON.from("simple_array.json", bundle: NSBundle(forClass: self.classForKeyedArchiver!))
-    if let result = result {
+    let (result: AnyObject?, error) = JSON.from("simple_array.json", bundle: NSBundle(forClass: self.classForKeyedArchiver!))
+    if let result = result as? [[String : AnyObject]] {
       let compared = [["id" : 1, "name" : "Hi"]]
       XCTAssertEqual(compared, result)
-      success = true
-    }
-
-    XCTAssertTrue(success)
-  }
-
-  func testArrayJSONPrettyPrint() {
-    var success = false
-
-    let (result, error) = JSON.from("simple_array.json", bundle: NSBundle(forClass: self.classForKeyedArchiver!))
-    if let pretty = result?.prettyDescription() {
-      XCTAssertEqual("[\n  {\n    \"id\" : 1,\n    \"name\" : \"Hi\"\n  }\n]", pretty)
       success = true
     }
 
@@ -30,8 +20,8 @@ class Tests: XCTestCase {
   func testDictionaryJSONFromFileNamed() {
     var success = false
 
-    let (result, error) = JSON.from("simple_dictionary.json", bundle: NSBundle(forClass: self.classForKeyedArchiver!))
-    if let result = result {
+    let (result: AnyObject?, error) = JSON.from("simple_dictionary.json", bundle: NSBundle(forClass: self.classForKeyedArchiver!))
+    if let result = result as? [String : NSObject] {
       let compared = ["id" : 1, "name" : "Hi"]
       XCTAssertEqual(compared, result)
       success = true
@@ -40,17 +30,7 @@ class Tests: XCTestCase {
     XCTAssertTrue(success)
   }
 
-  func testDictionaryJSONPrettyPrint() {
-    var success = false
-
-    let (result, error) = JSON.from("simple_dictionary.json", bundle: NSBundle(forClass: self.classForKeyedArchiver!))
-    if let pretty = result?.prettyDescription() {
-      XCTAssertEqual("{\n  \"id\" : 1,\n  \"name\" : \"Hi\"\n}", pretty)
-      success = true
-    }
-
-    XCTAssertTrue(success)
-  }
+  // MARK: - to JSON
 
   func testToJSON() {
     var connectionError: NSError?
