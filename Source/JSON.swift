@@ -1,11 +1,11 @@
 import Foundation
 
-class JSON {
-  class func from(fileName: String) -> (result: AnyObject?, error: NSError?) {
+public class JSON {
+  public class func from(fileName: String) -> (result: AnyObject?, error: NSError?) {
     return from(fileName, bundle: NSBundle.mainBundle())
   }
 
-  class func from(fileName: String, bundle: NSBundle) -> (result: AnyObject?, error: NSError?) {
+  public class func from(fileName: String, bundle: NSBundle) -> (result: AnyObject?, error: NSError?) {
     var tuple: (AnyObject?, NSError?)
     if let filePath = bundle.pathForResource(fileName.stringByDeletingPathExtension, ofType: fileName.pathExtension) {
       if let data = NSData(contentsOfFile: filePath) {
