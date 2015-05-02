@@ -3,8 +3,15 @@ import XCTest
 
 class Tests: XCTestCase {
   func testFromFileNamed() {
+    var success = false
     let (result, error) = JSON.from("simple.json", bundle: NSBundle(forClass: self.classForKeyedArchiver!))
-    XCTAssertNotNil(result)
+    if let result = result {
+      let compared = [["id" : 1, "name" : "Hi"]]
+      XCTAssertEqual(compared, result)
+      success = true
+    }
+
+    XCTAssertTrue(success)
   }
 
   func testPrettyPrint() {
