@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1452901D1AE1C436004A0E85 /* simple.json in Resources */ = {isa = PBXBuildFile; fileRef = 1452901C1AE1C436004A0E85 /* simple.json */; };
+		146CBEBF1AF4A6F300305ED9 /* simple_dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 146CBEBD1AF4A6F300305ED9 /* simple_dictionary.json */; };
+		146CBEC11AF4A82900305ED9 /* simple_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 146CBEC01AF4A82900305ED9 /* simple_array.json */; };
 		14FF9B861AF3C2C400F185A7 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF9B851AF3C2C400F185A7 /* JSON.swift */; };
 		14FF9B881AF3C84500F185A7 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF9B871AF3C84500F185A7 /* Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1452901C1AE1C436004A0E85 /* simple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple.json; sourceTree = "<group>"; };
+		146CBEBD1AF4A6F300305ED9 /* simple_dictionary.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple_dictionary.json; sourceTree = "<group>"; };
+		146CBEC01AF4A82900305ED9 /* simple_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple_array.json; sourceTree = "<group>"; };
 		146D72AC1AB782920058798C /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		146D72B11AB782920058798C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14C136511AB784B200B7B07A /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
@@ -59,7 +61,8 @@
 		146D72AF1AB782920058798C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				1452901C1AE1C436004A0E85 /* simple.json */,
+				146CBEC01AF4A82900305ED9 /* simple_array.json */,
+				146CBEBD1AF4A6F300305ED9 /* simple_dictionary.json */,
 				146D72B01AB782920058798C /* Supporting Files */,
 				14FF9B871AF3C84500F185A7 /* Tests.swift */,
 			);
@@ -152,7 +155,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1452901D1AE1C436004A0E85 /* simple.json in Resources */,
+				146CBEBF1AF4A6F300305ED9 /* simple_dictionary.json in Resources */,
+				146CBEC11AF4A82900305ED9 /* simple_array.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
