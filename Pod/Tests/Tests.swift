@@ -12,6 +12,7 @@ class Tests: XCTestCase {
       let compared = [["id" : 1, "name" : "Hi"]]
       XCTAssertEqual(compared, result)
       success = true
+      print(error)
     }
 
     XCTAssertTrue(success)
@@ -25,6 +26,7 @@ class Tests: XCTestCase {
       let compared = ["id" : 1, "name" : "Hi"]
       XCTAssertEqual(compared, result)
       success = true
+      print(error)
     }
 
     XCTAssertTrue(success)
@@ -42,6 +44,7 @@ class Tests: XCTestCase {
     } catch let error as NSError {
       connectionError = error
       data = nil
+      print(connectionError)
     }
     let result = data!.toJSON()
     let JSON = result.result as! [String : AnyObject]
