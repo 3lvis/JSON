@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "JSON"
   s.summary          = "JSON made so simple, it hurts"
-  s.version          = "3.0.0"
+  s.version          = "3.1.0"
   s.homepage         = "https://github.com/3lvis/JSON"
   s.license          = 'MIT'
   s.author           = { "Elvis Nuñez" => "elvisnunez@me.com" }
