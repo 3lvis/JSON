@@ -7,7 +7,8 @@ public class JSON {
 
   public class func from(fileName: String, bundle: NSBundle) -> (result: AnyObject?, error: NSError?) {
     var tuple: (AnyObject?, NSError?)
-    if let filePath = bundle.pathForResource(fileName.stringByDeletingPathExtension, ofType: fileName.pathExtension) {
+    let url = NSURL(string: fileName)
+    if let filePath = bundle.pathForResource(url?.URLByDeletingPathExtension?.absoluteString, ofType: url?.pathExtension) {
       if let data = NSData(contentsOfFile: filePath) {
         tuple = data.toJSON()
       }
