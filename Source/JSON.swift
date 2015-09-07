@@ -7,7 +7,8 @@ public class JSON {
 
   public class func from(fileName: String, bundle: NSBundle) -> (result: AnyObject?, error: NSError?) {
     var tuple: (AnyObject?, NSError?)
-    if let filePath = bundle.pathForResource(fileName.stringByDeletingPathExtension, ofType: fileName.pathExtension) {
+    let url = NSURL(string: fileName)
+    if let filePath = bundle.pathForResource(url?.URLByDeletingPathExtension?.absoluteString, ofType: url?.pathExtension) {
       if let data = NSData(contentsOfFile: filePath) {
         tuple = data.toJSON()
       }
@@ -20,7 +21,13 @@ public class JSON {
 extension NSData {
   public func toJSON() -> (result: AnyObject?, error: NSError?) {
     var error: NSError?
-    let JSON: AnyObject? = NSJSONSerialization.JSONObjectWithData(self, options: .allZeros, error: &error)
+    let JSON: AnyObject?
+    do {
+      JSON = try NSJSONSerialization.JSONObjectWithData(self, options: [])
+    } catch let error1 as NSError {
+      error = error1
+      JSON = nil
+    }
 
     return (JSON, error)
   }

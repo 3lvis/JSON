@@ -7,7 +7,7 @@ class Tests: XCTestCase {
   func testArrayJSONFromFileNamed() {
     var success = false
 
-    let (result: AnyObject?, error) = JSON.from("simple_array.json", bundle: NSBundle(forClass: self.classForKeyedArchiver!))
+    let (result, error): (AnyObject?, NSError?) = JSON.from("simple_array.json", bundle: NSBundle(forClass: self.classForKeyedArchiver!))
     if let result = result as? [[String : AnyObject]] {
       let compared = [["id" : 1, "name" : "Hi"]]
       XCTAssertEqual(compared, result)
@@ -20,7 +20,7 @@ class Tests: XCTestCase {
   func testDictionaryJSONFromFileNamed() {
     var success = false
 
-    let (result: AnyObject?, error) = JSON.from("simple_dictionary.json", bundle: NSBundle(forClass: self.classForKeyedArchiver!))
+    let (result, error): (AnyObject?, NSError?) = JSON.from("simple_dictionary.json", bundle: NSBundle(forClass: self.classForKeyedArchiver!))
     if let result = result as? [String : NSObject] {
       let compared = ["id" : 1, "name" : "Hi"]
       XCTAssertEqual(compared, result)
@@ -36,7 +36,13 @@ class Tests: XCTestCase {
     var connectionError: NSError?
     var response: NSURLResponse?
     let request = NSURLRequest(URL: NSURL(string: "http://httpbin.org/get")!)
-    let data = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &connectionError)
+    let data: NSData?
+    do {
+      data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+    } catch let error as NSError {
+      connectionError = error
+      data = nil
+    }
     let result = data!.toJSON()
     let JSON = result.result as! [String : AnyObject]
     let url = JSON["url"] as! String
