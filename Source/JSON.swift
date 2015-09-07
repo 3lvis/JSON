@@ -20,7 +20,13 @@ public class JSON {
 extension NSData {
   public func toJSON() -> (result: AnyObject?, error: NSError?) {
     var error: NSError?
-    let JSON: AnyObject? = NSJSONSerialization.JSONObjectWithData(self, options: .allZeros, error: &error)
+    let JSON: AnyObject?
+    do {
+      JSON = try NSJSONSerialization.JSONObjectWithData(self, options: [])
+    } catch let error1 as NSError {
+      error = error1
+      JSON = nil
+    }
 
     return (JSON, error)
   }
