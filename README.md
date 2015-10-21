@@ -9,6 +9,7 @@ This library helps you dealing with `NSJSONSerialization`. It has simple methods
 ## JSON Object from NSData
 
 ```swift
+// Error handling not added for demo purposes, please make sure to do a proper do-try-catch dance 
 let request = NSURLRequest(URL: NSURL(string: "http://httpbin.org/get")!)
 NSURLSession.sharedSession().dataTaskWithRequest(request) { data, _, error in
     let JSON = try! data!.toJSON() as! [String : AnyObject]
