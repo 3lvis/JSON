@@ -7,25 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		146CBEBF1AF4A6F300305ED9 /* simple_dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 146CBEBD1AF4A6F300305ED9 /* simple_dictionary.json */; };
-		146CBEC11AF4A82900305ED9 /* simple_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 146CBEC01AF4A82900305ED9 /* simple_array.json */; };
-		14901AFD1BD785BE00674EE3 /* invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 14901AFC1BD785BE00674EE3 /* invalid.json */; settings = {ASSET_TAGS = (); }; };
-		14FF9B861AF3C2C400F185A7 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF9B851AF3C2C400F185A7 /* JSON.swift */; };
-		14FF9B881AF3C84500F185A7 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF9B871AF3C84500F185A7 /* Tests.swift */; };
+		14A139B41AEFC72B00AD732F /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A139B31AEFC72B00AD732F /* Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		146CBEBD1AF4A6F300305ED9 /* simple_dictionary.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple_dictionary.json; sourceTree = "<group>"; };
-		146CBEC01AF4A82900305ED9 /* simple_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple_array.json; sourceTree = "<group>"; };
 		146D72AC1AB782920058798C /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		146D72B11AB782920058798C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14901AFC1BD785BE00674EE3 /* invalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = invalid.json; sourceTree = "<group>"; };
-		14C136511AB784B200B7B07A /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
-		14C136521AB784B200B7B07A /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = "<group>"; };
-		14C136541AB784B200B7B07A /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
-		14C136551AB784B200B7B07A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		14FF9B851AF3C2C400F185A7 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
-		14FF9B871AF3C84500F185A7 /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		14A139B31AEFC72B00AD732F /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		14C0AF7F1BD6D4230009ECBE /* .slather.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .slather.yml; sourceTree = "<group>"; };
+		14C0AF801BD6D4230009ECBE /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		14C0AF811BD6D4230009ECBE /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		14C0AF821BD6D4230009ECBE /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		14C0AF831BD6D4230009ECBE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		14C0AF851BD6D4370009ECBE /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,14 +36,14 @@
 		146D728A1AB782920058798C = {
 			isa = PBXGroup;
 			children = (
-				14C1365B1AB784BC00B7B07A /* Source */,
 				14C136501AB7849300B7B07A /* Metadata */,
+				14C0AF841BD6D4370009ECBE /* Source */,
 				146D72AF1AB782920058798C /* Tests */,
 				146D72941AB782920058798C /* Products */,
 			);
-			indentWidth = 2;
+			indentWidth = 4;
 			sourceTree = "<group>";
-			tabWidth = 2;
+			tabWidth = 4;
 		};
 		146D72941AB782920058798C /* Products */ = {
 			isa = PBXGroup;
@@ -62,11 +56,8 @@
 		146D72AF1AB782920058798C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				14901AFC1BD785BE00674EE3 /* invalid.json */,
-				146CBEC01AF4A82900305ED9 /* simple_array.json */,
-				146CBEBD1AF4A6F300305ED9 /* simple_dictionary.json */,
+				14A139B31AEFC72B00AD732F /* Tests.swift */,
 				146D72B01AB782920058798C /* Supporting Files */,
-				14FF9B871AF3C84500F185A7 /* Tests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -79,24 +70,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		14C0AF841BD6D4370009ECBE /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				14C0AF851BD6D4370009ECBE /* .gitkeep */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		14C136501AB7849300B7B07A /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				14C136511AB784B200B7B07A /* .travis.yml */,
-				14C136521AB784B200B7B07A /* CONTRIBUTING.md */,
-				14C136541AB784B200B7B07A /* LICENSE.md */,
-				14C136551AB784B200B7B07A /* README.md */,
+				14C0AF7F1BD6D4230009ECBE /* .slather.yml */,
+				14C0AF801BD6D4230009ECBE /* .travis.yml */,
+				14C0AF811BD6D4230009ECBE /* CHANGELOG.md */,
+				14C0AF821BD6D4230009ECBE /* CONTRIBUTING.md */,
+				14C0AF831BD6D4230009ECBE /* README.md */,
 			);
 			name = Metadata;
-			sourceTree = "<group>";
-		};
-		14C1365B1AB784BC00B7B07A /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				14FF9B851AF3C2C400F185A7 /* JSON.swift */,
-			);
-			name = Source;
-			path = ../Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,17 +116,17 @@
 		146D728B1AB782920058798C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftMigration = 0700;
+				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = Example;
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					146D72AB1AB782920058798C = {
 						CreatedOnToolsVersion = 6.2;
 					};
 				};
 			};
-			buildConfigurationList = 146D728E1AB782920058798C /* Build configuration list for PBXProject "Pod" */;
+			buildConfigurationList = 146D728E1AB782920058798C /* Build configuration list for PBXProject "Demo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -158,9 +149,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				146CBEBF1AF4A6F300305ED9 /* simple_dictionary.json in Resources */,
-				146CBEC11AF4A82900305ED9 /* simple_array.json in Resources */,
-				14901AFD1BD785BE00674EE3 /* invalid.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,8 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14FF9B861AF3C2C400F185A7 /* JSON.swift in Sources */,
-				14FF9B881AF3C84500F185A7 /* Tests.swift in Sources */,
+				14A139B41AEFC72B00AD732F /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,7 +201,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -249,7 +236,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -267,9 +254,8 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sample.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -281,16 +267,15 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sample.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		146D728E1AB782920058798C /* Build configuration list for PBXProject "Pod" */ = {
+		146D728E1AB782920058798C /* Build configuration list for PBXProject "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				146D72B41AB782920058798C /* Debug */,
