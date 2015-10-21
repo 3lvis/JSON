@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/JSON.svg?style=flat)](http://cocoadocs.org/docsets/JSON)
 [![Platform](https://img.shields.io/cocoapods/p/JSON.svg?style=flat)](http://cocoadocs.org/docsets/JSON)
 
-This library helps you dealing with `NSJSONSerialization`. It has simple methods to get a JSON object from a file and converting NSData into a JSON object.
+This library helps you dealing with `NSJSONSerialization`. It has simple methods to convert NSData into a JSON object and to get a JSON object from a file.
 
 ## JSON Object from NSData
 
