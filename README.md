@@ -34,6 +34,8 @@ NSURLSession.sharedSession().dataTaskWithRequest(request) { data, _, error in
 */
 ```
 
+If converting the NSData to JSON fails, you'll get a `ParsingError.Failed` error.
+
 ## JSON Object from file
 
 **For files in the main bundle:**
@@ -60,6 +62,8 @@ do {
     // Handle error
 }
 ```
+
+If parsing the JSON fails, you'll get a `ParsingError.Failed` error. If the file is not found you'll get a `ParsingError.NotFound` error.
 
 ## Installation
 
