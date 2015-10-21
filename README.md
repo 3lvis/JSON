@@ -7,13 +7,30 @@
 
 ## Usage
 
+
+**For files in the main bundle:**
+
 ```swift
 import JSON
 
-// Looks for your file in the main bundle
-let (result: AnyObject?, error) = JSON.from("users.json")
+var users: AnyObject?
+do {
+    users = try JSON.from("users.json")
+} catch {
+    // Handle error
+}
+```
 
-let (result: AnyObject?, error) = JSON.from("users.json", bundle: NSBundle(forClass: self.classForKeyedArchiver!))
+**For files in in other bundles (for example Tests file bundle):**
+```swift
+import JSON
+
+var users: AnyObject?
+do {
+    users = try JSON.from("users.json", bundle: NSBundle(forClass: Tests.self))
+} catch {
+    // Handle error
+}
 ```
 
 ## Installation
