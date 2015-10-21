@@ -1,6 +1,5 @@
 # JSON
 
-[![CI Status](http://img.shields.io/travis/3lvis/JSON.svg?style=flat)](https://travis-ci.org/3lvis/JSON)
 [![Version](https://img.shields.io/cocoapods/v/JSON.svg?style=flat)](http://cocoadocs.org/docsets/JSON)
 [![License](https://img.shields.io/cocoapods/l/JSON.svg?style=flat)](http://cocoadocs.org/docsets/JSON)
 [![Platform](https://img.shields.io/cocoapods/p/JSON.svg?style=flat)](http://cocoadocs.org/docsets/JSON)
