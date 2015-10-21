@@ -7,8 +7,6 @@
 
 This library helps you dealing with `NSJSONSerialization`. It has simple methods to get a JSON object from a file and converting NSData into a JSON object.
 
-## Usage
-
 ## JSON Object from NSData
 
 ```swift
@@ -35,7 +33,7 @@ let JSON = try! data!.toJSON() as! [String : AnyObject]
 */
 ```
 
-### JSON Object from file
+## JSON Object from file
 
 **For files in the main bundle:**
 
