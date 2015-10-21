@@ -5,19 +5,7 @@ public enum ParsingError: ErrorType {
 }
 
 public class JSON {
-  public class func from(fileName: String) throws -> AnyObject? {
-    var JSON: AnyObject? = nil
-
-    do {
-      JSON = try from(fileName, bundle: NSBundle.mainBundle())
-    } catch {
-      throw ParsingError.Failed
-    }
-
-    return JSON
-  }
-
-  public class func from(fileName: String, bundle: NSBundle) throws -> AnyObject? {
+  public class func from(fileName: String, bundle: NSBundle = NSBundle.mainBundle()) throws -> AnyObject? {
     var JSON: AnyObject? = nil
     let url = NSURL(string: fileName)
     if let filePath = bundle.pathForResource(url?.URLByDeletingPathExtension?.absoluteString, ofType: url?.pathExtension) {
