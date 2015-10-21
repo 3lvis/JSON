@@ -30,7 +30,7 @@ NSURLSession.sharedSession().dataTaskWithRequest(request) { data, _, error in
     "Upgrade-Insecure-Requests": "1", 
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36"
   }, 
-  "origin": "185.55.105.254", 
+  "origin": "000.00.000.000", 
   "url": "http://httpbin.org/get"
 }
 */
