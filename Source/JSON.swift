@@ -6,19 +6,13 @@ public enum ParsingError: ErrorType {
 
 public class JSON {
   public class func from(fileName: String, bundle: NSBundle = NSBundle.mainBundle()) throws -> AnyObject? {
-    var JSON: AnyObject? = nil
-    let url = NSURL(string: fileName)
-    if let filePath = bundle.pathForResource(url?.URLByDeletingPathExtension?.absoluteString, ofType: url?.pathExtension) {
-      if let data = NSData(contentsOfFile: filePath) {
-        do {
-          JSON = try data.toJSON()
-        } catch {
-          throw ParsingError.Failed
-        }
-      }
-    } else {
-      throw ParsingError.NotFound
-    }
+    var JSON: AnyObject?
+
+    guard let url = NSURL(string: fileName), filePath = bundle.pathForResource(url.URLByDeletingPathExtension?.absoluteString, ofType: url.pathExtension) else { throw ParsingError.NotFound }
+
+    guard let data = NSData(contentsOfFile: filePath) else { throw ParsingError.Failed }
+
+    JSON = try data.toJSON()
 
     return JSON
   }
@@ -26,7 +20,7 @@ public class JSON {
 
 extension NSData {
   public func toJSON() throws -> AnyObject? {
-    var JSON: AnyObject? = nil
+    var JSON: AnyObject?
     do {
       JSON = try NSJSONSerialization.JSONObjectWithData(self, options: [])
     } catch {
