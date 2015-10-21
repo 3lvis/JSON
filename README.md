@@ -10,13 +10,16 @@ This library helps you dealing with `NSJSONSerialization`. It has simple methods
 ## JSON Object from NSData
 
 ```swift
-var response: NSURLResponse?
 let request = NSURLRequest(URL: NSURL(string: "http://httpbin.org/get")!)
-let data: NSData?
-data = try! NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
-let JSON = try! data!.toJSON() as! [String : AnyObject]
+NSURLSession.sharedSession().dataTaskWithRequest(request) { data, _, error in
+    let JSON = try! data!.toJSON() as! [String : AnyObject]
+    print(JSON)
+    
+    expectation.fulfill()
+}.resume()
+```
 
-/*
+```json
 {
   "args": {}, 
   "headers": {
