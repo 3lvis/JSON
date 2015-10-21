@@ -8,6 +8,8 @@ This library helps you dealing with `NSJSONSerialization`. It has simple methods
 
 ## JSON Object from NSData
 
+If converting the NSData to JSON fails, you'll get a `ParsingError.Failed` error.
+
 ```swift
 // Error handling not added for demo purposes, please make sure to do a proper do-try-catch dance 
 let request = NSURLRequest(URL: NSURL(string: "http://httpbin.org/get")!)
@@ -34,9 +36,9 @@ NSURLSession.sharedSession().dataTaskWithRequest(request) { data, _, error in
 */
 ```
 
-If converting the NSData to JSON fails, you'll get a `ParsingError.Failed` error.
-
 ## JSON Object from file
+
+If parsing the JSON fails, you'll get a `ParsingError.Failed` error. If the file is not found you'll get a `ParsingError.NotFound` error.
 
 **For files in the main bundle:**
 
@@ -52,6 +54,7 @@ do {
 ```
 
 **For files in in other bundles (for example Tests file bundle):**
+
 ```swift
 import JSON
 
@@ -62,8 +65,6 @@ do {
     // Handle error
 }
 ```
-
-If parsing the JSON fails, you'll get a `ParsingError.Failed` error. If the file is not found you'll get a `ParsingError.NotFound` error.
 
 ## Installation
 
