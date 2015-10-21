@@ -11,11 +11,15 @@ This library helps you dealing with `NSJSONSerialization`. It has simple methods
 If converting the NSData to JSON fails, you'll get a `ParsingError.Failed` error.
 
 ```swift
-// Error handling not added for demo purposes, please make sure to do a proper do-try-catch dance 
-let request = NSURLRequest(URL: NSURL(string: "http://httpbin.org/get")!)
+guard let url = NSURL(string: "http://httpbin.org/get") else { return }
+let request = NSURLRequest(URL: url)
 NSURLSession.sharedSession().dataTaskWithRequest(request) { data, _, error in
-    let JSON = try! data!.toJSON() as! [String : AnyObject]
-    print(JSON)
+    do {
+        let JSON = try data?.toJSON() as? [String : AnyObject]
+        print(JSON)
+    } catch {
+        // Handle error
+    }
 }.resume()
 ```
 
