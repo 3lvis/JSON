@@ -55,17 +55,10 @@ class Tests: XCTestCase {
   // MARK: - to JSON
 
   func testToJSON() {
-    var connectionError: NSError?
     var response: NSURLResponse?
     let request = NSURLRequest(URL: NSURL(string: "http://httpbin.org/get")!)
     let data: NSData?
-    do {
-      data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
-    } catch let error as NSError {
-      connectionError = error
-      data = nil
-      print(connectionError)
-    }
+    data = try! NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
     let JSON = try! data!.toJSON() as! [String : AnyObject]
     let url = JSON["url"] as! String
     XCTAssertEqual(url, "http://httpbin.org/get")
