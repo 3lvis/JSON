@@ -7,7 +7,7 @@ class Tests: XCTestCase {
   func testArrayJSONFromFileNamed() {
     var success = false
 
-    let result = try! JSON.from("simple_array.json", bundle: NSBundle(forClass: self.classForKeyedArchiver!))
+    let result = try! JSON.from("simple_array.json", bundle: NSBundle(forClass: Tests.self))
     if let result = result as? [[String : AnyObject]] {
       let compared = [["id" : 1, "name" : "Hi"]]
       XCTAssertEqual(compared, result)
@@ -20,7 +20,7 @@ class Tests: XCTestCase {
   func testDictionaryJSONFromFileNamed() {
     var success = false
 
-    let result = try! JSON.from("simple_dictionary.json", bundle: NSBundle(forClass: self.classForKeyedArchiver!))
+    let result = try! JSON.from("simple_dictionary.json", bundle: NSBundle(forClass: Tests.self))
     if let result = result as? [String : NSObject] {
       let compared = ["id" : 1, "name" : "Hi"]
       XCTAssertEqual(compared, result)
@@ -28,6 +28,28 @@ class Tests: XCTestCase {
     }
 
     XCTAssertTrue(success)
+  }
+
+  func testFromFileNamedWithNotFoundFile() {
+    var failed = false
+    do {
+      try JSON.from("nonexistingfile.json", bundle: NSBundle(forClass: Tests.self))
+    } catch ParsingError.NotFound {
+      failed = true
+    } catch { }
+
+    XCTAssertTrue(failed)
+  }
+
+  func testFromFileNamedWithInvalidJSON() {
+    var failed = false
+    do {
+      try JSON.from("invalid.json", bundle: NSBundle(forClass: Tests.self))
+    } catch ParsingError.Failed {
+      failed = true
+    } catch { }
+
+    XCTAssertTrue(failed)
   }
 
   // MARK: - to JSON

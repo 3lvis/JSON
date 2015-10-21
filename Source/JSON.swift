@@ -1,7 +1,7 @@
 import Foundation
 
 public enum ParsingError: ErrorType {
-  case Failed
+  case NotFound, Failed
 }
 
 public class JSON {
@@ -16,6 +16,8 @@ public class JSON {
           throw ParsingError.Failed
         }
       }
+    } else {
+      throw ParsingError.NotFound
     }
 
     return JSON
