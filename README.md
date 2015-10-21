@@ -17,8 +17,22 @@ let request = NSURLRequest(URL: NSURL(string: "http://httpbin.org/get")!)
 let data: NSData?
 data = try! NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
 let JSON = try! data!.toJSON() as! [String : AnyObject]
-let url = JSON["url"] as! String
-XCTAssertEqual(url, "http://httpbin.org/get")
+
+/*
+{
+  "args": {}, 
+  "headers": {
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8", 
+    "Accept-Encoding": "gzip, deflate, sdch", 
+    "Accept-Language": "en-US,en;q=0.8,es;q=0.6,nb;q=0.4", 
+    "Host": "httpbin.org", 
+    "Upgrade-Insecure-Requests": "1", 
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36"
+  }, 
+  "origin": "185.55.105.254", 
+  "url": "http://httpbin.org/get"
+}
+*/
 ```
 
 ### JSON Object from file
