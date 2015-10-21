@@ -1,34 +1,48 @@
 import Foundation
 
+public enum ParsingError: ErrorType {
+  case Failed
+}
+
 public class JSON {
-  public class func from(fileName: String) -> (result: AnyObject?, error: NSError?) {
-    return from(fileName, bundle: NSBundle.mainBundle())
+  public class func from(fileName: String) throws -> AnyObject? {
+    var JSON: AnyObject? = nil
+
+    do {
+      JSON = try from(fileName, bundle: NSBundle.mainBundle())
+    } catch {
+      throw ParsingError.Failed
+    }
+
+    return JSON
   }
 
-  public class func from(fileName: String, bundle: NSBundle) -> (result: AnyObject?, error: NSError?) {
-    var tuple: (AnyObject?, NSError?)
+  public class func from(fileName: String, bundle: NSBundle) throws -> AnyObject? {
+    var JSON: AnyObject? = nil
     let url = NSURL(string: fileName)
     if let filePath = bundle.pathForResource(url?.URLByDeletingPathExtension?.absoluteString, ofType: url?.pathExtension) {
       if let data = NSData(contentsOfFile: filePath) {
-        tuple = data.toJSON()
+        do {
+          JSON = try data.toJSON()
+        } catch {
+          throw ParsingError.Failed
+        }
       }
     }
 
-    return tuple
+    return JSON
   }
 }
 
 extension NSData {
-  public func toJSON() -> (result: AnyObject?, error: NSError?) {
-    var error: NSError?
-    let JSON: AnyObject?
+  public func toJSON() throws -> AnyObject? {
+    var JSON: AnyObject? = nil
     do {
       JSON = try NSJSONSerialization.JSONObjectWithData(self, options: [])
-    } catch let error1 as NSError {
-      error = error1
-      JSON = nil
+    } catch {
+      throw ParsingError.Failed
     }
 
-    return (JSON, error)
+    return JSON
   }
 }
