@@ -57,11 +57,16 @@ class Tests: XCTestCase {
   func testToJSON() {
     let expectation = expectationWithDescription("GET")
 
-    let request = NSURLRequest(URL: NSURL(string: "http://httpbin.org/get")!)
+    guard let url = NSURL(string: "http://httpbin.org/get") else { return }
+    let request = NSURLRequest(URL: url)
     NSURLSession.sharedSession().dataTaskWithRequest(request) { data, _, error in
-        let JSON = try! data!.toJSON() as! [String : AnyObject]
-        let url = JSON["url"] as! String
-        XCTAssertEqual(url, "http://httpbin.org/get")
+        do {
+            let JSON = try data?.toJSON() as? [String : AnyObject]
+            let url = JSON?["url"] as! String
+            XCTAssertEqual(url, "http://httpbin.org/get")
+        } catch {
+            // Handle error
+        }
 
         expectation.fulfill()
     }.resume()
