@@ -13,8 +13,6 @@ let request = NSURLRequest(URL: NSURL(string: "http://httpbin.org/get")!)
 NSURLSession.sharedSession().dataTaskWithRequest(request) { data, _, error in
     let JSON = try! data!.toJSON() as! [String : AnyObject]
     print(JSON)
-    
-    expectation.fulfill()
 }.resume()
 ```
 
