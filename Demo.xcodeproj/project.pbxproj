@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		14A139B41AEFC72B00AD732F /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A139B31AEFC72B00AD732F /* Tests.swift */; };
-		14C62D131BD78FEE00C96BD3 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C62D121BD78FEE00C96BD3 /* JSON.swift */; settings = {ASSET_TAGS = (); }; };
-		14C62D171BD78FF700C96BD3 /* invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C62D141BD78FF700C96BD3 /* invalid.json */; settings = {ASSET_TAGS = (); }; };
-		14C62D181BD78FF700C96BD3 /* simple_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C62D151BD78FF700C96BD3 /* simple_array.json */; settings = {ASSET_TAGS = (); }; };
-		14C62D191BD78FF700C96BD3 /* simple_dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C62D161BD78FF700C96BD3 /* simple_dictionary.json */; settings = {ASSET_TAGS = (); }; };
+		14C62D131BD78FEE00C96BD3 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C62D121BD78FEE00C96BD3 /* JSON.swift */; };
+		14C62D171BD78FF700C96BD3 /* invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C62D141BD78FF700C96BD3 /* invalid.json */; };
+		14C62D181BD78FF700C96BD3 /* simple_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C62D151BD78FF700C96BD3 /* simple_array.json */; };
+		14C62D191BD78FF700C96BD3 /* simple_dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C62D161BD78FF700C96BD3 /* simple_dictionary.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,11 +128,14 @@
 			attributes = {
 				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					146D72AB1AB782920058798C = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = C6K65RDJHL;
+						DevelopmentTeamName = "Elvis Nunez (Personal Team)";
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -203,6 +206,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -244,6 +248,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -271,6 +276,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sample.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -283,6 +289,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sample.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

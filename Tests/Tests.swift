@@ -7,7 +7,7 @@ class Tests: XCTestCase {
   func testArrayJSONFromFileNamed() {
     var success = false
 
-    let result = try! JSON.from("simple_array.json", bundle: NSBundle(forClass: Tests.self))
+    let result = try! JSON.from("simple_array.json", bundle: Bundle(for: Tests.self))
     if let result = result as? [[String : AnyObject]] {
       let compared = [["id" : 1, "name" : "Hi"]]
       XCTAssertEqual(compared, result)
@@ -20,7 +20,7 @@ class Tests: XCTestCase {
   func testDictionaryJSONFromFileNamed() {
     var success = false
 
-    let result = try! JSON.from("simple_dictionary.json", bundle: NSBundle(forClass: Tests.self))
+    let result = try! JSON.from("simple_dictionary.json", bundle: Bundle(for: Tests.self))
     if let result = result as? [String : NSObject] {
       let compared = ["id" : 1, "name" : "Hi"]
       XCTAssertEqual(compared, result)
@@ -33,8 +33,8 @@ class Tests: XCTestCase {
   func testFromFileNamedWithNotFoundFile() {
     var failed = false
     do {
-      try JSON.from("nonexistingfile.json", bundle: NSBundle(forClass: Tests.self))
-    } catch ParsingError.NotFound {
+      let _ = try JSON.from("nonexistingfile.json", bundle: Bundle(for: Tests.self))
+    } catch ParsingError.notFound {
       failed = true
     } catch { }
 
@@ -44,8 +44,8 @@ class Tests: XCTestCase {
   func testFromFileNamedWithInvalidJSON() {
     var failed = false
     do {
-      try JSON.from("invalid.json", bundle: NSBundle(forClass: Tests.self))
-    } catch ParsingError.Failed {
+      let _ = try JSON.from("invalid.json", bundle: Bundle(for: Tests.self))
+    } catch ParsingError.failed {
       failed = true
     } catch { }
 
@@ -55,11 +55,11 @@ class Tests: XCTestCase {
   // MARK: - to JSON
 
   func testToJSON() {
-    let expectation = expectationWithDescription("GET")
+    let expectation = self.expectation(withDescription: "GET")
 
-    guard let url = NSURL(string: "http://httpbin.org/get") else { return }
-    let request = NSURLRequest(URL: url)
-    NSURLSession.sharedSession().dataTaskWithRequest(request) { data, _, error in
+    guard let url = URL(string: "http://httpbin.org/get") else { return }
+    let request = URLRequest(url: url)
+    URLSession.shared().dataTask(with: request) { data, _, error in
         do {
             let JSON = try data?.toJSON() as? [String : AnyObject]
             let url = JSON?["url"] as! String
@@ -71,6 +71,6 @@ class Tests: XCTestCase {
         expectation.fulfill()
     }.resume()
 
-    waitForExpectationsWithTimeout(10, handler: nil)
+    waitForExpectations(withTimeout: 10, handler: nil)
   }
 }
