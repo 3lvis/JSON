@@ -5,29 +5,19 @@ class Tests: XCTestCase {
   // MARK: - from
 
   func testArrayJSONFromFileNamed() {
-    var success = false
+    let result = try! JSON.from("simple_array.json", bundle: Bundle(for: Tests.self)) as? [[String : Any]]  ?? [[String : Any]]()
+    let compared = [["id" : 1, "name" : "Hi"]]
+    XCTAssertEqual(compared.count, result.count)
 
-    let result = try! JSON.from("simple_array.json", bundle: Bundle(for: Tests.self))
-    if let result = result as? [[String : AnyObject]] {
-      let compared = [["id" : 1, "name" : "Hi"]]
-      XCTAssertEqual(compared, result)
-      success = true
-    }
-
-    XCTAssertTrue(success)
+    XCTAssertEqual(Array(compared[0].keys), Array(result[0].keys))
+    // XCTAssertEqual(Array(compared[0].values), Array(result[0].values))
   }
 
   func testDictionaryJSONFromFileNamed() {
-    var success = false
-
-    let result = try! JSON.from("simple_dictionary.json", bundle: Bundle(for: Tests.self))
-    if let result = result as? [String : NSObject] {
-      let compared = ["id" : 1, "name" : "Hi"]
-      XCTAssertEqual(compared, result)
-      success = true
-    }
-
-    XCTAssertTrue(success)
+    let result = try! JSON.from("simple_dictionary.json", bundle: Bundle(for: Tests.self)) as? [String : Any] ?? [String : Any]()
+    let compared = ["id" : 1, "name" : "Hi"] as [String : Any]
+    XCTAssertEqual(compared.count, result.count)
+    XCTAssertEqual(Array(compared.keys), Array(result.keys))
   }
 
   func testFromFileNamedWithNotFoundFile() {
@@ -55,13 +45,13 @@ class Tests: XCTestCase {
   // MARK: - to JSON
 
   func testToJSON() {
-    let expectation = self.expectation(withDescription: "GET")
+    let expectation = self.expectation(description: "GET")
 
     guard let url = URL(string: "http://httpbin.org/get") else { return }
     let request = URLRequest(url: url)
-    URLSession.shared().dataTask(with: request) { data, _, error in
+    URLSession.shared.dataTask(with: request) { data, _, error in
         do {
-            let JSON = try data?.toJSON() as? [String : AnyObject]
+            let JSON = try data?.toJSON() as? [String : Any]
             let url = JSON?["url"] as! String
             XCTAssertEqual(url, "http://httpbin.org/get")
         } catch {
@@ -71,6 +61,6 @@ class Tests: XCTestCase {
         expectation.fulfill()
     }.resume()
 
-    waitForExpectations(withTimeout: 10, handler: nil)
+    waitForExpectations(timeout: 10, handler: nil)
   }
 }

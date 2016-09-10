@@ -15,7 +15,7 @@ guard let url = NSURL(string: "http://httpbin.org/get") else { return }
 let request = NSURLRequest(URL: url)
 NSURLSession.sharedSession().dataTaskWithRequest(request) { data, _, error in
     do {
-        let JSON = try data?.toJSON() as? [String : AnyObject]
+        let JSON = try data?.toJSON() as? [String : Any]
         print(JSON)
     } catch {
         // Handle error
@@ -49,7 +49,7 @@ If parsing the JSON fails, you'll get a `ParsingError.Failed` error. If the file
 ```swift
 import JSON
 
-var users: AnyObject?
+var users: Any?
 do {
     users = try JSON.from("users.json")
 } catch {
@@ -62,7 +62,7 @@ do {
 ```swift
 import JSON
 
-var users: AnyObject?
+var users: Any?
 do {
     users = try JSON.from("users.json", bundle: NSBundle(forClass: Tests.self))
 } catch {
