@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		14A139B41AEFC72B00AD732F /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A139B31AEFC72B00AD732F /* Tests.swift */; };
-		14C62D131BD78FEE00C96BD3 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C62D121BD78FEE00C96BD3 /* JSON.swift */; settings = {ASSET_TAGS = (); }; };
-		14C62D171BD78FF700C96BD3 /* invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C62D141BD78FF700C96BD3 /* invalid.json */; settings = {ASSET_TAGS = (); }; };
-		14C62D181BD78FF700C96BD3 /* simple_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C62D151BD78FF700C96BD3 /* simple_array.json */; settings = {ASSET_TAGS = (); }; };
-		14C62D191BD78FF700C96BD3 /* simple_dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C62D161BD78FF700C96BD3 /* simple_dictionary.json */; settings = {ASSET_TAGS = (); }; };
+		14C62D131BD78FEE00C96BD3 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C62D121BD78FEE00C96BD3 /* JSON.swift */; };
+		14C62D171BD78FF700C96BD3 /* invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C62D141BD78FF700C96BD3 /* invalid.json */; };
+		14C62D181BD78FF700C96BD3 /* simple_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C62D151BD78FF700C96BD3 /* simple_array.json */; };
+		14C62D191BD78FF700C96BD3 /* simple_dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C62D161BD78FF700C96BD3 /* simple_dictionary.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +133,7 @@
 				TargetAttributes = {
 					146D72AB1AB782920058798C = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -271,6 +272,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sample.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -283,6 +285,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sample.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
