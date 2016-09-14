@@ -9,8 +9,12 @@ class Tests: XCTestCase {
     let compared = [["id" : 1, "name" : "Hi"]]
     XCTAssertEqual(compared.count, result.count)
 
+    // This should work but Swift is not able to compile it.
+    // XCTAssertEqual(compared, result)
+
     XCTAssertEqual(Array(compared[0].keys), Array(result[0].keys))
-    // XCTAssertEqual(Array(compared[0].values), Array(result[0].values))
+    XCTAssertEqual(compared[0]["id"] as? Int, result[0]["id"] as? Int)
+    XCTAssertEqual(compared[0]["name"] as? String, result[0]["name"] as? String)
   }
 
   func testDictionaryJSONFromFileNamed() {
