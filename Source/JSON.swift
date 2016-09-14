@@ -5,14 +5,14 @@ public enum ParsingError: Error {
     case notFound, failed
 }
 
-open class JSON {
+public class JSON {
     /**
     Returns a JSON object from a file.
     - parameter fileName: The name of the file, the expected extension is `.json`.
     - parameter bundle:  The NSBundle where the file is located, by default is the main bundle.
     - returns: A JSON object, it can be either a Dictionary or an Array.
     */
-    open class func from(_ fileName: String, bundle: Bundle = Bundle.main) throws -> Any? {
+    public class func from(_ fileName: String, bundle: Bundle = Bundle.main) throws -> Any? {
         var JSON: Any?
 
         guard let url = URL(string: fileName), let filePath = bundle.path(forResource: url.deletingPathExtension().absoluteString, ofType: url.pathExtension) else { throw ParsingError.notFound }
@@ -25,7 +25,7 @@ open class JSON {
     }
 }
 
-extension Data {
+public extension Data {
     /**
     Converts NSData to a JSON object.
     - returns: A JSON object, it can be either a Dictionary or an Array.
