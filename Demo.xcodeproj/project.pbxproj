@@ -135,7 +135,7 @@
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = C6K65RDJHL;
 						DevelopmentTeamName = "Elvis Nunez (Personal Team)";
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
