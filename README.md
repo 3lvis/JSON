@@ -66,7 +66,7 @@ import JSON
 
 var users: Any?
 do {
-    users = try JSON.from("users.json", bundle: NSBundle(forClass: Tests.self))
+    users = try JSON.from("users.json", bundle: Bundle(for: Tests.self))
 } catch {
     // Handle error
 }
